@@ -35,8 +35,8 @@ $(function(){
 	});
 
 	var updateParamater = function(){
-		p['speed'] = 30;
-		p['duration'] = 2;
+		p['speed'] = 100;
+		p['duration'] = 30;
 		p['stopImageNumber'] = Number($('.stop_image_number_param').eq(0).text());
 		p['stopImageNumber'] = 3;
 		rouletter.roulette('option', p);	
