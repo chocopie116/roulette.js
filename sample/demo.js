@@ -1,5 +1,4 @@
 $(function(){
-
 	$('.roulette').find('img').hover(function(){
 		console.log($(this).height());
 	});
@@ -36,9 +35,10 @@ $(function(){
 	});
 
 	var updateParamater = function(){
-		p['speed'] = Number($('.speed_param').eq(0).text());
-		p['duration'] = Number($('.duration_param').eq(0).text());
+		p['speed'] = 30;
+		p['duration'] = 2;
 		p['stopImageNumber'] = Number($('.stop_image_number_param').eq(0).text());
+		p['stopImageNumber'] = 3;
 		rouletter.roulette('option', p);	
 	}
 	var updateSpeed = function(speed){
