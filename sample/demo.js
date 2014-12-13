@@ -3,6 +3,8 @@ $(function(){
 		console.log($(this).height());
 	});
 	var p = {
+        speed: 1000,
+        duration: 30,
 		startCallback : function() {
 			$('#speed, #duration').slider('disable');
 			$('#stopImageNumber').spinner('disable');
@@ -31,14 +33,12 @@ $(function(){
 	});
 	$('.stop').attr('disabled', 'true');
 	$('.start').click(function(){
+		updateParamater();
 		rouletter.roulette('start');	
 	});
 
 	var updateParamater = function(){
-		p['speed'] = 100;
-		p['duration'] = 30;
-		p['stopImageNumber'] = Number($('.stop_image_number_param').eq(0).text());
-		p['stopImageNumber'] = 3;
+		p['stopImageNumber'] = RouletteGift.draw();
 		rouletter.roulette('option', p);	
 	}
 	var updateSpeed = function(speed){
@@ -50,7 +50,6 @@ $(function(){
 		value : 10,
 		slide: function( event, ui ) {
 			updateSpeed(ui.value);
-			updateParamater();
 		}
 	});
 	updateSpeed($('#speed').slider('value'));
@@ -64,7 +63,6 @@ $(function(){
 		value : 3,
 		slide: function( event, ui ) {
 			updateDuration(ui.value);
-			updateParamater();
 		}
 	});
 	updateDuration($('#duration').slider('value'));
@@ -73,7 +71,6 @@ $(function(){
 		$('.image_sample').children().css('opacity' , 0.2);
 		$('.image_sample').children().filter('[data-value="' + stopImageNumber + '"]').css('opacity' , 1);
 		$('.stop_image_number_param').text(stopImageNumber);
-		updateParamater();
 	}
 
 	$('#stopImageNumber').spinner({
