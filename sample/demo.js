@@ -4,7 +4,7 @@ $(function(){
 	});
 	var p = {
         speed: 1000,
-        duration: 30,
+        duration: 300000,
 		startCallback : function() {
 			$('.start').attr('disabled', 'true');
 			$('.stop').removeAttr('disabled');
